@@ -1,6 +1,7 @@
 import { Icon } from "../lib/icons";
 import { PageHero, Pillars, SplitBlock, StatBand, CTASection, type PillarItem, type Stat } from "../components/sections";
 import { VizChart, VizNodes, VizRadar } from "../components/viz";
+import { asset } from "../lib/asset";
 
 const PILLARS: PillarItem[] = [
   { icon: <Icon.Building />, title: "Mixed-use development", desc: "Live-work-play communities in high-growth U.S. metros.",                 viz: <VizNodes /> },
@@ -95,7 +96,7 @@ export default function Infrastructure() {
               <article key={i} className="card" data-tilt="4" style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="card-glare" />
                 <div style={{ position: 'relative', height: '180px', margin: '-26px -24px 20px -24px', overflow: 'hidden', borderRadius: '15px 15px 0 0' }}>
-                  <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={asset(p.img)} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <span style={{ position: 'absolute', top: '12px', right: '12px', background: 'var(--accent-grad)', color: 'var(--accent-ink)', fontSize: '11px', fontWeight: 'bold', padding: '4px 8px', borderRadius: '4px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>{p.type}</span>
                 </div>
                 <div className="card-top" style={{ marginBottom: '10px' }}>

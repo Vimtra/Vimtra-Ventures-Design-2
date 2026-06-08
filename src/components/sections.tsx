@@ -5,6 +5,7 @@ import { FluidBackground } from "../lib/FluidBackground";
 import { BlackHole } from "./BlackHole";
 import { CountUp } from "./CountUp";
 import { COMPANY } from "../data";
+import { asset } from "../lib/asset";
 
 /* ---------- common ---------- */
 interface CTA { label: string; href: string }
@@ -143,11 +144,11 @@ export function CompGrid({ kicker, title, italic, titleEnd, sub, items }: Head &
 export interface SectorItem { icon: ReactNode; name: string; note: string; href: string; feat?: boolean }
 
 const getSectorImage = (href: string) => {
-  if (href.includes("it")) return "/images/portfolio_it.png";
-  if (href.includes("healthcare")) return "/images/portfolio_healthcare.png";
-  if (href.includes("retail")) return "/images/portfolio_retail.png";
-  if (href.includes("sports")) return "/images/portfolio_sports.png";
-  if (href.includes("infrastructure") || href.includes("real-estate") || href.includes("infrastructure.html")) return "/images/infra_rendering.png";
+  if (href.includes("it")) return asset("images/portfolio_it.png");
+  if (href.includes("healthcare")) return asset("images/portfolio_healthcare.png");
+  if (href.includes("retail")) return asset("images/portfolio_retail.png");
+  if (href.includes("sports")) return asset("images/portfolio_sports.png");
+  if (href.includes("infrastructure") || href.includes("real-estate") || href.includes("infrastructure.html")) return asset("images/infra_rendering.png");
   return "";
 };
 
@@ -231,6 +232,9 @@ export function SplitBlock({ kicker, title, italic, titleEnd, body, points, reve
   const hasMultiple = images.length > 1;
   const isImage = images.length > 0 && (images[0].startsWith("/") || images[0].includes("."));
 
+  // Resolve image paths through the asset helper for correct base URL
+  const resolvedImages = isImage ? images.map(img => asset(img.startsWith("/") ? img.slice(1) : img)) : images;
+
   const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
@@ -260,7 +264,7 @@ export function SplitBlock({ kicker, title, italic, titleEnd, body, points, reve
             <div className="split-slot" style={{ background: "var(--bg-2)", height: "clamp(320px,42vw,480px)", borderRadius: 18, display: "grid", placeItems: "center", color: "var(--text-faint)", fontSize: 14, overflow: "hidden", position: "relative" }}>
               {isImage ? (
                 <>
-                  {images.map((imgUrl, idx) => {
+                  {resolvedImages.map((imgUrl, idx) => {
                     const isActive = idx === activeIdx;
                     return (
                       <img

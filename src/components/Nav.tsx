@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { asset } from "../lib/asset";
 import { NAV, type NavItem } from "../data";
 import { Icon } from "../lib/icons";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -34,7 +35,7 @@ export function Nav({ accent, onAccent }: Props) {
       <div className={"nav-shell" + (scrolled ? " scrolled" : "")}>
         <nav className="nav">
           <NavLink className="brand nav-anim-logo" to="/" aria-label="Vimtra Ventures home" style={{ animationDelay: "0.35s" }}>
-            <img className="brand-logo" src="/vimtra-logo.png" alt="Vimtra Ventures" />
+            <img className="brand-logo" src={asset("vimtra-logo.png")} alt="Vimtra Ventures" />
           </NavLink>
           <div className="nav-links">
             {NAV.map((l, i) => (

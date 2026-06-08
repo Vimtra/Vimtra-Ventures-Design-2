@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { PageHero, CTASection } from "../components/sections";
 import { Icon } from "../lib/icons";
+import { asset } from "../lib/asset";
 
 interface TeamSection {
   title: string;
@@ -241,7 +242,7 @@ export default function Teams() {
                 >
                   <div className="carousel-card-photo">
                     {member.photoSrc ? (
-                      <img src={member.photoSrc} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      <img src={asset(member.photoSrc)} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     ) : (
                       <span className="carousel-card-initials">{derivedInitials}</span>
                     )}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "../lib/icons";
 import { COMPANY } from "../data";
+import { asset } from "../lib/asset";
 
 const COLS: { h: string; items: [string, string][] }[] = [
   { h: "Capabilities", items: [
@@ -23,7 +24,7 @@ export function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <img className="footer-logo" src="/vimtra-logo.png" alt="Vimtra Ventures" />
+            <img className="footer-logo" src={asset("vimtra-logo.png")} alt="Vimtra Ventures" />
             <p className="footer-blurb">A global private equity and venture capital firm specializing in corporate finance, M&amp;A, and strategic development across technology, retail, healthcare, real estate, and hospitality.</p>
             <p className="footer-sub">{COMPANY.parent}</p>
           </div>
