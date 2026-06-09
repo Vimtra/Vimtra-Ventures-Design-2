@@ -10,7 +10,7 @@ const PILLARS: PillarItem[] = [
 
 const STATS: Stat[] = [
   { v: "30+",    l: "IT companies operated" },
-  { v: "$450M+", l: "Real estate in development" },
+  { v: "$650M+", l: "Real estate in development" },
   { v: "4",      l: "Global offices" },
   { v: "5+",     l: "Sectors of focus" },
 ];
