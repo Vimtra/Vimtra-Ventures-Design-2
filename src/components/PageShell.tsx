@@ -7,6 +7,28 @@ import { CanvasCursor } from "./CanvasCursor";
 
 interface Props { children: ReactNode }
 
+/** Staged intro on the first visit of the session — nav slides in,
+ *  then the hero background fades in, then headline/sub/buttons cascade.
+ *  Skipped on subsequent SPA navigations so it doesn't feel repetitive.
+ *
+ *  Idempotency lives entirely in sessionStorage so React 18 StrictMode's
+ *  dev-mode double-invoke is safe and Vite's React-Fast-Refresh module
+ *  preservation can't trap us in a stuck state. The timeout intentionally
+ *  has no cleanup — if it runs after unmount, removing an already-absent
+ *  class is a no-op. */
+function useFirstVisitIntro() {
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("vimtra:introSeen")) return;
+      sessionStorage.setItem("vimtra:introSeen", "1");
+    } catch { /* sessionStorage blocked — still play the intro */ }
+    document.body.classList.add("intro-first-load");
+    setTimeout(() => {
+      document.body.classList.remove("intro-first-load");
+    }, 3200);
+  }, []);
+}
+
 /** Position the ripple at the actual click point and restart the animation. */
 function useButtonRipple() {
   useEffect(() => {
@@ -38,6 +60,7 @@ export function PageShell({ children }: Props) {
   useTilt();
   useGridHover();
   useButtonRipple();
+  useFirstVisitIntro();
   return (
     <>
       <CanvasCursor />

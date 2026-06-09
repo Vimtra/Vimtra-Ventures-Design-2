@@ -1,4 +1,4 @@
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "../lib/icons";
 import { FluidBackground } from "../lib/FluidBackground";
@@ -6,6 +6,8 @@ import { BlackHole } from "./BlackHole";
 import { CountUp } from "./CountUp";
 import { COMPANY } from "../data";
 import { asset } from "../lib/asset";
+import { LiquidGlassBackground } from "./LiquidGlassBackground";
+import { LiquidGlassContext } from "./LiquidGlassContext";
 
 /* ---------- common ---------- */
 interface CTA { label: string; href: string }
@@ -53,34 +55,62 @@ export function PageHero({ eyebrow, title, italic, titleEnd, sub, primary, secon
 /* ---------- home hero ---------- */
 interface HomeHeroProps { headA: string; headItalic: string; headB: string; sub: string }
 export function HomeHero({ headA, headItalic, headB, sub }: HomeHeroProps) {
+  const bgCanvasRef = useRef<HTMLCanvasElement>(null);
+
   return (
-    <header className="hero hero--cosmic" id="top">
-      <div className="hero-space" />
-      <div className="hero-stars" />
-      <BlackHole />
-      <div className="hero-floor" />
-      <div className="hero-vignette" />
-      <div className="wrap">
-        <div className="hero-inner" data-stagger="ae-smooth">
-          <div className="eyebrow">
-            <span className="dot" />
-            <span><b>Vimtra Ventures</b> — Private Equity &amp; Venture Capital</span>
-            <span className="arrow">→</span>
+    <LiquidGlassContext.Provider value={bgCanvasRef}>
+      <header className="hero hero--cosmic" id="top">
+        <div className="hero-space" />
+        <div className="hero-stars" />
+
+        {/* BlackHole component commented out as requested */}
+        {/* <BlackHole /> */}
+
+        {/* WebGL Liquid Glass Background */}
+        <LiquidGlassBackground canvasRef={bgCanvasRef} />
+
+        {/* Commented out original SVG displacement filter background for easy toggling
+        <div className="hero-glass-bg">
+          <div className="hero-shapes-container">
+            <div className="glass-blob glass-blob--1" />
+            <div className="glass-blob glass-blob--2" />
+            <div className="glass-blob glass-blob--3" />
           </div>
-          <h1>{headA} <span className="ital">{headItalic}</span> {headB}</h1>
-          <p className="sub">{sub}</p>
-          <div className="hero-actions">
+          <div className="hero-glass-overlay" />
+
+          <svg style={{ position: "absolute", width: 0, height: 0, pointerEvents: "none" }} aria-hidden="true">
+            <filter id="glass-refract">
+              <feTurbulence type="fractalNoise" baseFrequency="0.0025 0.016" numOctaves="3" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="130" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </svg>
+        </div>
+        */}
+
+        <div className="hero-floor" />
+        <div className="hero-vignette" />
+        <div className="wrap">
+          <div className="hero-inner" data-stagger="ae-smooth">
+            <div className="eyebrow">
+              <span className="dot" />
+              <span><b>Vimtra Ventures</b> — Private Equity &amp; Venture Capital</span>
+              <span className="arrow">→</span>
+            </div>
+            <h1>{headA} <span className="ital">{headItalic}</span> {headB}</h1>
+            <p className="sub">{sub}</p>
+            <div className="hero-actions">
             <Link className="btn btn-primary btn-lg ae-elastic-hover" to="/contact">Request a meeting <Icon.Arrow /></Link>
             <Link className="btn btn-glass btn-lg ae-elastic-hover" to="/private-equity"><span>Explore our concept</span></Link>
           </div>
-          <div className="trust">
-            <span><Icon.Check /> Venture capital</span>
-            <span><Icon.Check /> Private equity</span>
-            <span><Icon.Check /> M&amp;A &amp; restructuring</span>
+            <div className="trust">
+              <span><Icon.Check /> Venture capital</span>
+              <span><Icon.Check /> Private equity</span>
+              <span><Icon.Check /> M&amp;A &amp; restructuring</span>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </LiquidGlassContext.Provider>
   );
 }
 
@@ -162,9 +192,9 @@ export function SectorGrid({ kicker, title, italic, titleEnd, sub, items }: Head
             const bgImg = getSectorImage(s.href);
             return (
               <Link className={"sector-tile" + (s.feat ? " span2" : "")} to={s.href} data-tilt="5" key={s.name}>
-                <div 
-                  className="sector-bg" 
-                  style={bgImg ? { backgroundImage: `linear-gradient(to top, #08080a 0%, rgba(8, 8, 10, 0.45) 60%, transparent 100%), url(${bgImg})` } : undefined} 
+                <div
+                  className="sector-bg"
+                  style={bgImg ? { backgroundImage: `linear-gradient(to top, #08080a 0%, rgba(8, 8, 10, 0.45) 60%, transparent 100%), url(${bgImg})` } : undefined}
                 />
                 <div className="sector-glow" />
                 <div className="sector-ico">{s.icon}</div>

@@ -230,10 +230,106 @@ button { font-family: inherit; cursor: pointer; }
 
 .btn-glass:active {
   transform: translateY(0) scale(0.98);
-  box-shadow: 
+  box-shadow:
     inset 0 2px 4px rgba(0, 0, 0, 0.45),
     0 4px 12px -4px rgba(0, 0, 0, 0.5),
     0 0 12px -4px rgba(var(--glow-rgb), 0.2);
+}
+
+/* ============================================================
+   LIQUID GLASS BUTTON  (Explore CTA)
+   backdrop frost of the real hero behind it + fractalNoise
+   displaced refraction caustics + breathing accent glow + sheen.
+   ============================================================ */
+.btn-liquid-glass {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;                 /* keep ::before screen-blend local */
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  -webkit-backdrop-filter: blur(7px) saturate(1.7) brightness(1.04);
+  backdrop-filter: blur(7px) saturate(1.7) brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),    /* crisp top rim */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),        /* bottom edge */
+    inset 0 -10px 22px rgba(0, 0, 0, 0.22),    /* liquid base shadow */
+    inset 0 9px 24px rgba(255, 255, 255, 0.06),/* inner dome glow */
+    0 12px 34px -12px rgba(0, 0, 0, 0.65);
+  transition:
+    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+/* refraction caustics — fractalNoise displaced highlight field, breathing */
+.btn-liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background:
+    radial-gradient(130% 100% at 50% -10%, rgba(255, 255, 255, 0.28), transparent 55%),
+    radial-gradient(130% 150% at 50% 120%, rgba(var(--glow-rgb), 0.42), transparent 72%),
+    linear-gradient(125deg, rgba(255, 255, 255, 0.16), transparent 45%);
+  filter: url(#lg-distort);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+  animation: lg-caustic 5s ease-in-out infinite;
+}
+
+/* sweeping specular sheen */
+.btn-liquid-glass::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -60%;
+  width: 42%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  filter: blur(4px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  animation: lg-sheen 6.5s ease-in-out infinite;
+}
+
+.btn-liquid-glass > * {
+  position: relative;
+  z-index: 3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-liquid-glass:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    inset 0 -10px 24px rgba(var(--glow-rgb), 0.2),
+    inset 0 9px 24px rgba(255, 255, 255, 0.1),
+    0 16px 40px -12px rgba(0, 0, 0, 0.72),
+    0 0 30px -6px rgba(var(--glow-rgb), 0.45);
+}
+
+.btn-liquid-glass:active { transform: translateY(0) scale(0.98); }
+
+@keyframes lg-caustic {
+  0%, 100% { opacity: 0.7;  transform: scale(1); }
+  50%      { opacity: 0.95; transform: scale(1.04); }
+}
+
+@keyframes lg-sheen {
+  0%   { left: -60%; opacity: 0; }
+  16%  { opacity: 0.7; }
+  45%  { left: 120%; opacity: 0; }
+  100% { left: 120%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-liquid-glass::before { animation: none; filter: none; }
+  .btn-liquid-glass::after { animation: none; opacity: 0; }
 }
 
 .btn-lg { padding: 16px 28px; font-size: 16px; }
@@ -1619,7 +1715,7 @@ body[data-cards="glass"] .sector-tile {
   background: rgba(255, 255, 255, 0.12);
   border-color: var(--border-strong);
   color: var(--accent);
-  transform: scale(1.05);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .team-carousel-section {
@@ -1643,19 +1739,45 @@ body[data-cards="glass"] .sector-tile {
 .carousel-active-info {
   width: 100%;
   max-width: 760px;
-  margin: 10px auto 0;
+  margin: -15px auto 0; /* Pull the member paragraph up closer to the cylinder */
   padding: 0 var(--pad);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  position: relative;
+  z-index: 10;
 }
 
 /* ============================================================
    3D Cylinder Card Bubbles & Global Blur Effect
    ============================================================ */
+.carousel-side-blur-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  mask-image: linear-gradient(to right, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 0) 33%, 
+    rgba(0, 0, 0, 0) 67%, 
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-image: linear-gradient(to right, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 0) 33%, 
+    rgba(0, 0, 0, 0) 67%, 
+    rgba(0, 0, 0, 1) 100%
+  );
+  z-index: 4;
+}
+
 .bubble {
   position: absolute;
   z-index: 100;
   padding: 10px 18px;
-  background: rgba(18, 18, 24, 0.88);
+  background: rgba(14, 14, 18, 0.90);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 30px;
   color: var(--text);
@@ -1676,9 +1798,36 @@ body[data-cards="glass"] .sector-tile {
   pointer-events: auto;
 }
 
+/* Elevate the hovered bubble so it stacks on top of all other bubbles */
 .bubble:hover {
+  z-index: 250;
   border-color: var(--accent);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(var(--glow-rgb), 0.25), inset 0 1px rgba(255, 255, 255, 0.12);
+  transform: scale(1.04);
+}
+
+/* 2D Floating wrapper to animate the entire bubble container together */
+.bubble-floating-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: bubble-float 4.5s ease-in-out infinite alternate;
+}
+
+/* Staggered floating cycles */
+.bubble-floating-wrapper-0 { animation-delay: 0s; animation-duration: 4.8s; }
+.bubble-floating-wrapper-1 { animation-delay: -1.2s; animation-duration: 5.2s; }
+.bubble-floating-wrapper-2 { animation-delay: -2.5s; animation-duration: 4.5s; }
+.bubble-floating-wrapper-3 { animation-delay: -0.7s; animation-duration: 5.0s; }
+.bubble-floating-wrapper-4 { animation-delay: -3.1s; animation-duration: 5.6s; }
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
 }
 
 /* Orbit layout coordinates for bubbles */
@@ -1719,7 +1868,10 @@ body[data-cards="glass"] .sector-tile {
   white-space: normal;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 32px rgba(var(--glow-rgb), 0.15);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
+  z-index: 1000 !important;
+  /* Push popover forward in 3D space to prevent any overlap clipping issues */
+  transform: translate3d(0, 0, 20px) scale(0.95);
+  transform-origin: center;
 }
 
 .bubble:hover .bubble-content {
@@ -1731,24 +1883,22 @@ body[data-cards="glass"] .sector-tile {
 .bubble-1:hover .bubble-content,
 .bubble-2:hover .bubble-content,
 .bubble-3:hover .bubble-content {
-  transform: translateY(0) scale(1) !important;
+  transform: translate3d(0, 0, 20px) scale(1) !important;
 }
 
 .bubble-4:hover .bubble-content {
-  transform: translateX(-50%) translateY(0) scale(1) !important;
+  transform: translate3d(-50%, 0, 20px) scale(1) !important;
 }
 
 .bubble-0 .bubble-content {
   left: 0;
   top: calc(100% + 10px);
-  transform: translateY(8px);
   transform-origin: top left;
 }
 
 .bubble-1 .bubble-content {
   right: 0;
   top: calc(100% + 10px);
-  transform: translateY(8px);
   transform-origin: top right;
 }
 
@@ -1756,7 +1906,6 @@ body[data-cards="glass"] .sector-tile {
   left: 0;
   top: auto;
   bottom: calc(100% + 10px);
-  transform: translateY(-8px);
   transform-origin: bottom left;
 }
 
@@ -1764,7 +1913,6 @@ body[data-cards="glass"] .sector-tile {
   right: 0;
   top: auto;
   bottom: calc(100% + 10px);
-  transform: translateY(-8px);
   transform-origin: bottom right;
 }
 
@@ -1772,7 +1920,6 @@ body[data-cards="glass"] .sector-tile {
   left: 50%;
   top: auto;
   bottom: calc(100% + 10px);
-  transform: translateX(-50%) translateY(-8px);
   transform-origin: bottom center;
 }
 
