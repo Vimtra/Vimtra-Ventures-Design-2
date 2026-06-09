@@ -1725,30 +1725,55 @@ body[data-cards="glass"] .sector-tile {
 .bubble:hover .bubble-content {
   opacity: 1;
   pointer-events: auto;
+}
+
+.bubble-0:hover .bubble-content,
+.bubble-1:hover .bubble-content,
+.bubble-2:hover .bubble-content,
+.bubble-3:hover .bubble-content {
   transform: translateY(0) scale(1) !important;
 }
 
-.bubble-0 .bubble-content,
-.bubble-2 .bubble-content {
+.bubble-4:hover .bubble-content {
+  transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+.bubble-0 .bubble-content {
   left: 0;
   top: calc(100% + 10px);
   transform: translateY(8px);
   transform-origin: top left;
 }
 
-.bubble-1 .bubble-content,
-.bubble-3 .bubble-content {
+.bubble-1 .bubble-content {
   right: 0;
   top: calc(100% + 10px);
   transform: translateY(8px);
   transform-origin: top right;
 }
 
+.bubble-2 .bubble-content {
+  left: 0;
+  top: auto;
+  bottom: calc(100% + 10px);
+  transform: translateY(-8px);
+  transform-origin: bottom left;
+}
+
+.bubble-3 .bubble-content {
+  right: 0;
+  top: auto;
+  bottom: calc(100% + 10px);
+  transform: translateY(-8px);
+  transform-origin: bottom right;
+}
+
 .bubble-4 .bubble-content {
   left: 50%;
-  top: calc(100% + 10px);
-  transform: translateX(-50%) translateY(8px);
-  transform-origin: top center;
+  top: auto;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(-8px);
+  transform-origin: bottom center;
 }
 
 .bubble-content-inner ul {
