@@ -75,8 +75,24 @@
 }
 
 /* ============================================================
-   BLACK HOLE — Interstellar-style tilted disk + lensed arch
+   BLACK HOLE — WebGL ray-traced shader canvas
    ============================================================ */
+.blackhole-canvas {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
+  width: min(1100px, 110vw);
+  height: min(1100px, 110vh);
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  z-index: -2;
+  display: block;
+  filter: saturate(1.05);
+}
+
+/* legacy CSS layers below are unused (the canvas component does not render them
+   anymore) but kept here in case a fallback path is added later. They are inert. */
 .bh-stage {
   position: absolute; left: 50%; top: 56%;
   transform: translate(-50%, -50%);
