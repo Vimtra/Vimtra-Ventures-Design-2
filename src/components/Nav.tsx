@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { asset } from "../lib/asset";
 import { NAV, type NavItem } from "../data";
@@ -20,6 +20,7 @@ export function Nav({ accent, onAccent }: Props) {
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
   const { pathname } = useLocation();
+  const dropTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,6 +30,23 @@ export function Nav({ accent, onAccent }: Props) {
   }, []);
 
   useEffect(() => { setOpen(false); }, [pathname]);
+
+  const handleMouseEnter = () => {
+    if (dropTimeoutRef.current) clearTimeout(dropTimeoutRef.current);
+    setDrop(true);
+  };
+
+  const handleMouseLeave = () => {
+    dropTimeoutRef.current = setTimeout(() => {
+      setDrop(false);
+    }, 250); // 250ms buffer time to keep dropdown open when moving mouse
+  };
+
+  useEffect(() => {
+    return () => {
+      if (dropTimeoutRef.current) clearTimeout(dropTimeoutRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -42,8 +60,8 @@ export function Nav({ accent, onAccent }: Props) {
               l.children ? (
                 <div className="nav-drop nav-anim-link" key={l.label}
                      style={{ animationDelay: `${0.42 + i * 0.08}s` }}
-                     onMouseEnter={() => setDrop(true)}
-                     onMouseLeave={() => setDrop(false)}>
+                     onMouseEnter={handleMouseEnter}
+                     onMouseLeave={handleMouseLeave}>
                   <NavLink to={l.href} className={() => isActive(l, pathname) ? "active" : ""}>
                     {l.label} <Icon.Chevron />
                   </NavLink>
