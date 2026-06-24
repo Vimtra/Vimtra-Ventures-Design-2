@@ -167,7 +167,7 @@ const CONTENT: Record<SectorKey, SectorContent> = {
       },
       {
         name: "Chennai Lions GC",
-        subtitle: "IGPL - Indian Golf Premiere League",
+        subtitle: "IGPL - Indian Golf Premier League",
         location: "India",
         img: "images/portfolio/Primary-01-01.png",
         url: "https://theigpl.com/",
