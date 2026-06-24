@@ -166,10 +166,10 @@ const CONTENT: Record<SectorKey, SectorContent> = {
         }
       },
       {
-        name: "IGPL",
-        subtitle: "Indian Golf Premier League",
+        name: "Lions Chennai GC",
+        subtitle: "IGPL - Indian Golf Premiere League",
         location: "India",
-        img: "images/igpl.webp",
+        img: "images/portfolio/Primary-01-01.png",
         url: "https://theigpl.com/",
         category: "Golf Communities",
         details: {
