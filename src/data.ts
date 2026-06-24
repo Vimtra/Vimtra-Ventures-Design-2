@@ -19,8 +19,6 @@ export const NAV: NavItem[] = [
 
 export const COMPANY = {
   name: "Vimtra Ventures",
-  phone: "+1 732 666 2468",
-  phoneHref: "tel:+17326662468",
   email: "info@vimtra.com",
   emailHref: "mailto:info@vimtra.com",
   offices: "New York · San Francisco · Dallas · India",

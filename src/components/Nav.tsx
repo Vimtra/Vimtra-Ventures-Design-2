@@ -68,7 +68,7 @@ export function Nav({ accent, onAccent }: Props) {
             ))}
           </div>
           <div className="nav-cta nav-anim-cta" style={{ animationDelay: `${0.42 + NAV.length * 0.08 + 0.12}s` }}>
-            <ThemeSwitcher value={accent} onChange={onAccent} />
+            {/* <ThemeSwitcher value={accent} onChange={onAccent} /> */}
             <NavLink className="btn btn-primary" to="/contact">Request a meeting <Icon.Arrow /></NavLink>
             <button className="nav-burger" aria-label="Menu" onClick={() => setOpen(true)}><Icon.Menu /></button>
           </div>

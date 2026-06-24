@@ -38,7 +38,6 @@ export function Footer() {
             <h4>Contact</h4>
             <ul className="contact-list">
               <li><span className="ci"><Icon.Pin /></span> {COMPANY.offices}</li>
-              <li><a href={COMPANY.phoneHref}><span className="ci"><Icon.Phone /></span> {COMPANY.phone}</a></li>
               <li><a href={COMPANY.emailHref}><span className="ci"><Icon.Mail /></span> {COMPANY.email}</a></li>
             </ul>
             <div className="socials">

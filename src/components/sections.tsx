@@ -440,7 +440,6 @@ export function ContactBlock() {
             <p className="contact-lead">Tell us about your company, thesis, or deal. Our team responds within two business days.</p>
             <ul className="contact-detail">
               <li><span className="ci"><Icon.Pin /></span><div><b>Offices</b><br />{COMPANY.offices}</div></li>
-              <li><span className="ci"><Icon.Phone /></span><div><b>Phone</b><br /><a href={COMPANY.phoneHref}>{COMPANY.phone}</a></div></li>
               <li><span className="ci"><Icon.Mail /></span><div><b>Email</b><br /><a href={COMPANY.emailHref}>{COMPANY.email}</a></div></li>
             </ul>
             <div className="socials">

@@ -6,36 +6,36 @@ import {
 import { VizRadar, VizNodes, VizChart } from "../components/viz";
 
 const MARQUEE: PillarItem[] = [
-  { n: "01", icon: <Icon.Rocket />, title: "Venture Capital",      desc: "Early-stage funding and strategic guidance for high-growth startups across technology, AI, healthcare, and fintech.", viz: <VizRadar /> },
-  { n: "02", icon: <Icon.Growth />, title: "Private Equity",        desc: "We back established technology products and services companies with strong growth potential — optimizing operations to scale.", viz: <VizNodes /> },
-  { n: "04", icon: <Icon.Merge />,  title: "Mergers & Acquisitions", desc: "Domestic and cross-border mergers, acquisitions, divestitures, company combinations, and public-market takeovers.", viz: <VizChart /> },
+  { n: "01", icon: <Icon.Rocket />, title: "Venture Capital", desc: "Early-stage funding and strategic guidance for high-growth startups across technology, AI, healthcare, and fintech.", viz: <VizRadar /> },
+  { n: "02", icon: <Icon.Growth />, title: "Private Equity", desc: "We back established technology products and services companies with strong growth potential — optimizing operations to scale.", viz: <VizNodes /> },
+  { n: "03", icon: <Icon.Merge />, title: "Mergers & Acquisitions", desc: "Domestic and cross-border mergers, acquisitions, divestitures, company combinations, and public-market takeovers.", viz: <VizChart /> },
 ];
 
 const COMPS: CompItem[] = [
-  { n: "01", icon: <Icon.Rocket />,    title: "Venture Capital",          desc: "Early-stage funding and guidance for high-growth startups in tech, AI, healthcare, and fintech." },
-  { n: "02", icon: <Icon.Growth />,    title: "Private Equity",            desc: "Investing in established IT products and services companies, optimizing operations to unlock value." },
-  { n: "03", icon: <Icon.Briefcase />, title: "Capital Placement",         desc: "Operating, growth, and acquisition financing across senior, mezzanine, and junior debt." },
-  { n: "04", icon: <Icon.Merge />,     title: "Mergers & Acquisitions",    desc: "Domestic and cross-border mergers, acquisitions, divestitures, and public-market takeovers." },
-  { n: "05", icon: <Icon.Spark />,     title: "Startups",                  desc: "Full-service incubation and investment across every stage of finance." },
-  { n: "06", icon: <Icon.Refresh />,   title: "Business Restructuring",    desc: "A disciplined approach and innovative financing for businesses facing challenges." },
-  { n: "07", icon: <Icon.Building />,  title: "Infrastructure Development", desc: "$1.1 Billion in real estate projects under active development in high-growth target areas." },
-  { n: "08", icon: <Icon.Chip />,      title: "Information Technology",    desc: "Owning and operating 30+ technology companies across the country." },
-  { n: "09", icon: <Icon.Trophy />,    title: "Sports & Entertainment",    desc: "Long-term value creation across professional sports and entertainment ventures." },
+  { n: "01", icon: <Icon.Rocket />, title: "Venture Capital", desc: "Early-stage funding and guidance for high-growth startups in tech, AI, healthcare, and fintech." },
+  { n: "02", icon: <Icon.Growth />, title: "Private Equity", desc: "Investing in established IT products and services companies, optimizing operations to unlock value." },
+  { n: "03", icon: <Icon.Briefcase />, title: "Capital Placement", desc: "Operating, growth, and acquisition financing across senior, mezzanine, and junior debt." },
+  { n: "04", icon: <Icon.Merge />, title: "Mergers & Acquisitions", desc: "Domestic and cross-border mergers, acquisitions, divestitures, and public-market takeovers." },
+  { n: "05", icon: <Icon.Spark />, title: "Startups", desc: "Full-service incubation and investment across every stage of finance." },
+  { n: "06", icon: <Icon.Refresh />, title: "Business Restructuring", desc: "A disciplined approach and innovative financing for businesses facing challenges." },
+  { n: "07", icon: <Icon.Building />, title: "Infrastructure Development", desc: "$1.1 Billion in real estate projects under active development in high-growth target areas." },
+  { n: "08", icon: <Icon.Chip />, title: "Information Technology", desc: "Owning and operating 30+ technology companies across the country." },
+  { n: "09", icon: <Icon.Trophy />, title: "Sports & Entertainment", desc: "Long-term value creation across professional sports and entertainment ventures." },
 ];
 
 const SECTORS: SectorItem[] = [
-  { icon: <Icon.Chip />,     name: "Information Technology",  note: "30+ companies owned & operated", href: "/portfolio/it" },
-  { icon: <Icon.Heart />,    name: "Healthcare",               note: "Medical technology & services",   href: "/portfolio/healthcare" },
-  { icon: <Icon.Cart />,     name: "Retail",                   note: "Consumer brands & experiences",   href: "/portfolio/retail" },
-  { icon: <Icon.Trophy />,   name: "Sports & Entertainment",   note: "Golf & soccer properties",        href: "/portfolio/sports" },
-  { icon: <Icon.Building />, name: "Real Estate",              note: "$1.1 Billion under development",        href: "/infrastructure" },
+  { icon: <Icon.Chip />, name: "Information Technology", note: "30+ companies owned & operated", href: "/portfolio/it" },
+  { icon: <Icon.Heart />, name: "Healthcare", note: "Medical technology & services", href: "/portfolio/healthcare" },
+  { icon: <Icon.Cart />, name: "Retail", note: "Consumer brands & experiences", href: "/portfolio/retail" },
+  { icon: <Icon.Trophy />, name: "Sports & Entertainment", note: "Golf & soccer properties", href: "/portfolio/sports" },
+  { icon: <Icon.Building />, name: "Real Estate", note: "$1.1 Billion under development", href: "/infrastructure" },
 ];
 
 const STATS: Stat[] = [
   { v: "$1.1B+", l: "Real estate in development" },
-  { v: "30+",    l: "Tech & IT Companies Operated" },
-  { v: "9",      l: "Global offices" },
-  { v: "5+",     l: "Sectors of focus" },
+  { v: "30+", l: "Tech & IT Companies Operated" },
+  { v: "9", l: "Global offices" },
+  { v: "5+", l: "Sectors of focus" },
 ];
 
 export default function Home() {

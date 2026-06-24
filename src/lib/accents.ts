@@ -18,7 +18,7 @@ export const ACCENTS: Record<AccentHex, AccentPreset> = {
 };
 
 export const ACCENT_ORDER: AccentHex[] = ["#e94a8c", "#7c5cff", "#2dd4bf", "#f5a524", "#3b82f6", "#e21414"];
-export const DEFAULT_ACCENT: AccentHex = "#e94a8c";
+export const DEFAULT_ACCENT: AccentHex = "#f5a524";
 const STORAGE_KEY = "vimtra:accent";
 
 declare global { interface Window { __accentRGB?: number[]; } }
@@ -36,9 +36,13 @@ export function applyAccent(hex: AccentHex) {
 }
 
 export function loadSavedAccent(): AccentHex {
+  // Always return DEFAULT_ACCENT for now to keep the gold theme active
+  return DEFAULT_ACCENT;
+  /*
   try {
     const saved = localStorage.getItem(STORAGE_KEY) as AccentHex | null;
     if (saved && ACCENTS[saved]) return saved;
   } catch {}
   return DEFAULT_ACCENT;
+  */
 }
