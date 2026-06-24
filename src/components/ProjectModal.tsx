@@ -71,11 +71,17 @@ export function ProjectModal({ isOpen, onClose, title, imgUrl, details, url }: P
         }}
       >
         {/* Header Banner Image */}
-        <div style={{ position: "relative", height: "240px", width: "100%", overflow: "hidden", flexShrink: 0 }}>
+        <div style={{ position: "relative", height: "240px", width: "100%", overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: imgUrl.includes('Primary-01-01') ? 'rgba(255, 255, 255, 0.02)' : 'transparent' }}>
           <img
             src={resolvedImgUrl}
             alt={title}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: imgUrl.includes('Primary-01-01') ? "contain" : "cover",
+              padding: imgUrl.includes('Primary-01-01') ? "24px" : "0",
+              boxSizing: 'border-box'
+            }}
           />
           <div
             style={{

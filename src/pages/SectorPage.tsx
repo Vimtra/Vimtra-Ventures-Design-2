@@ -40,9 +40,9 @@ const CONTENT: Record<SectorKey, SectorContent> = {
     titleEnd: "one playbook.",
     sub: "Across SaaS, services, and infrastructure software — owning, operating, and scaling the next generation of category leaders.",
     pillars: [
-      { icon: <Icon.Chip />,   title: "SaaS & products",   desc: "Vertical and horizontal software with sticky revenue.",                viz: <VizChart label="ARR growth" /> },
-      { icon: <Icon.Growth />, title: "IT services",       desc: "Talent-driven consulting and managed services at scale.",              viz: <VizNodes /> },
-      { icon: <Icon.Spark />,  title: "AI & data",         desc: "Applied AI businesses across enterprise and consumer markets.",        viz: <VizRadar /> },
+      { icon: <Icon.Chip />, title: "SaaS & products", desc: "Vertical and horizontal software with sticky revenue.", viz: <VizChart label="ARR growth" /> },
+      { icon: <Icon.Growth />, title: "IT services", desc: "Talent-driven consulting and managed services at scale.", viz: <VizNodes /> },
+      { icon: <Icon.Spark />, title: "AI & data", desc: "Applied AI businesses across enterprise and consumer markets.", viz: <VizRadar /> },
     ],
     body: [
       "Vimtra has owned and operated more than thirty technology businesses across the United States and India — giving us pattern-recognition that's hard to replicate.",
@@ -59,9 +59,9 @@ const CONTENT: Record<SectorKey, SectorContent> = {
     titleEnd: "brands.",
     sub: "Investing in differentiated consumer brands and the omnichannel experiences that scale them.",
     pillars: [
-      { icon: <Icon.Cart />,   title: "Branded consumer", desc: "Owned brands with loyal communities and pricing power.",         viz: <VizChart label="LTV / CAC" /> },
-      { icon: <Icon.Globe />,  title: "Omnichannel retail", desc: "Stores, DTC, and marketplace presence as one experience.",     viz: <VizNodes /> },
-      { icon: <Icon.Spark />,  title: "Retail technology",  desc: "Software and data infrastructure powering modern commerce.",   viz: <VizRadar /> },
+      { icon: <Icon.Cart />, title: "Branded consumer", desc: "Owned brands with loyal communities and pricing power.", viz: <VizChart label="LTV / CAC" /> },
+      { icon: <Icon.Globe />, title: "Omnichannel retail", desc: "Stores, DTC, and marketplace presence as one experience.", viz: <VizNodes /> },
+      { icon: <Icon.Spark />, title: "Retail technology", desc: "Software and data infrastructure powering modern commerce.", viz: <VizRadar /> },
     ],
     body: [
       "Modern consumers expect brands to feel cohesive everywhere they touch them. We invest in operators who treat retail as one connected experience, not a stack of channels.",
@@ -95,9 +95,9 @@ const CONTENT: Record<SectorKey, SectorContent> = {
     titleEnd: "at scale.",
     sub: "Backing companies that improve clinical outcomes, expand access, and reduce cost across the care continuum.",
     pillars: [
-      { icon: <Icon.Heart />,  title: "Care services",  desc: "Multi-site clinical platforms with measurable outcomes.",  viz: <VizChart label="Outcomes" /> },
-      { icon: <Icon.Chip />,   title: "MedTech",         desc: "Devices and digital health that change clinical workflows.", viz: <VizRadar /> },
-      { icon: <Icon.Globe />,  title: "Healthcare IT",  desc: "Software backbones for payers, providers, and patients.",   viz: <VizNodes /> },
+      { icon: <Icon.Heart />, title: "Care services", desc: "Multi-site clinical platforms with measurable outcomes.", viz: <VizChart label="Outcomes" /> },
+      { icon: <Icon.Chip />, title: "MedTech", desc: "Devices and digital health that change clinical workflows.", viz: <VizRadar /> },
+      { icon: <Icon.Globe />, title: "Healthcare IT", desc: "Software backbones for payers, providers, and patients.", viz: <VizNodes /> },
     ],
     body: [
       "Healthcare requires patient capital and operating expertise — both of which we bring to every investment.",
@@ -127,9 +127,9 @@ const CONTENT: Record<SectorKey, SectorContent> = {
     titleEnd: "",
     sub: "Sports properties, entertainment IP, and the venues and platforms that bring them to fans.",
     pillars: [
-      { icon: <Icon.Trophy />, title: "Sports properties", desc: "Clubs, leagues, and academies with global fan bases.",         viz: <VizRadar /> },
-      { icon: <Icon.Spark />,  title: "Live entertainment", desc: "Venues, festivals, and experiential brands.",                 viz: <VizChart label="Attendance" /> },
-      { icon: <Icon.Globe />,  title: "Media & IP",         desc: "Streaming, licensing, and digital fan experiences.",          viz: <VizNodes /> },
+      { icon: <Icon.Trophy />, title: "Sports properties", desc: "Clubs, leagues, and academies with global fan bases.", viz: <VizRadar /> },
+      { icon: <Icon.Spark />, title: "Live entertainment", desc: "Venues, festivals, and experiential brands.", viz: <VizChart label="Attendance" /> },
+      { icon: <Icon.Globe />, title: "Media & IP", desc: "Streaming, licensing, and digital fan experiences.", viz: <VizNodes /> },
     ],
     body: [
       "Sports and entertainment are some of the most enduring categories of consumer attention — and they continue to globalise.",
@@ -173,7 +173,7 @@ const CONTENT: Record<SectorKey, SectorContent> = {
         url: "https://theigpl.com/",
         category: "Golf Communities",
         details: {
-          "Concept": "Vimtra Chennai Lions GC is a franchise of the AM Green Indian Golf Premier League (IGPL), owned by Vimtra Ventures. We are building more than a golf franchise - a premium sports and business ecosystem that brings together high-performance golf, executive networking, luxury lifestyle, and deep Chennai identity."
+          "Concept": "Chennai Lions GC is a franchise of the AM Green Indian Golf Premier League (IGPL), owned by Vimtra Ventures. We are building more than a golf franchise - a premium sports and business ecosystem that brings together high-performance golf, executive networking, luxury lifestyle, and deep Chennai identity."
         }
       },
       {
@@ -201,9 +201,9 @@ const CONTENT: Record<SectorKey, SectorContent> = {
     titleEnd: "way.",
     sub: "Branded hotels, resorts, and food-and-beverage concepts with distinctive guest experiences.",
     pillars: [
-      { icon: <Icon.Bed />,    title: "Hotels & resorts", desc: "Branded keys in supply-constrained leisure and gateway markets.", viz: <VizChart label="RevPAR" /> },
-      { icon: <Icon.Spark />,  title: "F&B concepts",     desc: "Chef-led concepts with scalable operating models.",                viz: <VizRadar /> },
-      { icon: <Icon.Globe />,  title: "Experiential",     desc: "Members clubs, wellness, and lifestyle programming.",              viz: <VizNodes /> },
+      { icon: <Icon.Bed />, title: "Hotels & resorts", desc: "Branded keys in supply-constrained leisure and gateway markets.", viz: <VizChart label="RevPAR" /> },
+      { icon: <Icon.Spark />, title: "F&B concepts", desc: "Chef-led concepts with scalable operating models.", viz: <VizRadar /> },
+      { icon: <Icon.Globe />, title: "Experiential", desc: "Members clubs, wellness, and lifestyle programming.", viz: <VizNodes /> },
     ],
     body: [
       "Travel and experiences continue to take share of consumer wallet — particularly at the premium end.",
@@ -230,8 +230,18 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
       {projectsList.map((p, i) => (
         <article key={i} className="card" data-tilt="4" style={{ display: 'flex', flexDirection: 'column' }}>
           <div className="card-glare" />
-          <div style={{ position: 'relative', height: '180px', margin: '-26px -24px 20px -24px', overflow: 'hidden', borderRadius: '15px 15px 0 0' }}>
-            <img src={asset(p.img)} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div style={{ position: 'relative', height: '180px', margin: '-26px -24px 20px -24px', overflow: 'hidden', borderRadius: '15px 15px 0 0', display: 'flex', alignItems: 'center', justifyContent: 'center', background: p.img.includes('Primary-01-01') ? 'rgba(255, 255, 255, 0.02)' : 'transparent' }}>
+            <img
+              src={asset(p.img)}
+              alt={p.name}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: p.img.includes('Primary-01-01') ? 'contain' : 'cover',
+                padding: p.img.includes('Primary-01-01') ? '16px' : '0',
+                boxSizing: 'border-box'
+              }}
+            />
           </div>
           <div className="card-top" style={{ marginBottom: '10px', flexDirection: 'column', alignItems: 'flex-start', gap: '4px' }}>
             <h3 style={{ fontSize: '18px' }}>{p.name}</h3>
@@ -294,7 +304,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
         <section className="section py-5" style={{ paddingBottom: '0' }}>
           <div className="wrap">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-              <div 
+              <div
                 onClick={() => scrollToSection("golf-communities")}
                 style={{
                   position: 'relative',
@@ -329,7 +339,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
                 </div>
               </div>
 
-              <div 
+              <div
                 onClick={() => scrollToSection("soccer")}
                 style={{
                   position: 'relative',
