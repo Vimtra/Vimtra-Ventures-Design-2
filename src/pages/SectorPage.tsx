@@ -173,11 +173,7 @@ const CONTENT: Record<SectorKey, SectorContent> = {
         url: "https://theigpl.com/",
         category: "Golf Communities",
         details: {
-          "Vision": "Transforming golf landscape in India",
-          "Formats": "Three formats - The Tour, Turf Wars (city clash), Showdown (extreme golf)",
-          "Focus": "Faster-paced, younger, inclusive, modern golf with broadcast-centric culture",
-          "Model": "City-based teams and franchise pathways for professional golfers",
-          "Status": "Active League"
+          "Concept": "Vimtra Chennai Lions GC is a franchise of the AM Green Indian Golf Premier League (IGPL), owned by Vimtra Ventures. We are building more than a golf franchise - a premium sports and business ecosystem that brings together high-performance golf, executive networking, luxury lifestyle, and deep Chennai identity."
         }
       },
       {
@@ -236,14 +232,14 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
           <div className="card-glare" />
           <div style={{ position: 'relative', height: '180px', margin: '-26px -24px 20px -24px', overflow: 'hidden', borderRadius: '15px 15px 0 0' }}>
             <img src={asset(p.img)} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            {p.subtitle ? (
-              <span style={{ position: 'absolute', top: '12px', right: '12px', background: 'var(--accent-grad)', color: 'var(--accent-ink)', fontSize: '11px', fontWeight: 'bold', padding: '4px 8px', borderRadius: '4px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+          </div>
+          <div className="card-top" style={{ marginBottom: '10px', flexDirection: 'column', alignItems: 'flex-start', gap: '4px' }}>
+            <h3 style={{ fontSize: '18px' }}>{p.name}</h3>
+            {p.subtitle && (
+              <span style={{ fontSize: '13px', color: 'var(--text-dim)', fontWeight: 500 }}>
                 {p.subtitle}
               </span>
-            ) : null}
-          </div>
-          <div className="card-top" style={{ marginBottom: '10px' }}>
-            <h3 style={{ fontSize: '18px' }}>{p.name}</h3>
+            )}
           </div>
           {p.location && (
             <div style={{ fontSize: '13px', color: 'var(--accent)', fontWeight: 500, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
