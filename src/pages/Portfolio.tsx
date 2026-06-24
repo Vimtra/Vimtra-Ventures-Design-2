@@ -10,7 +10,7 @@ const SECTORS: SectorItem[] = [
 
 const STATS: Stat[] = [
   { v: "$1.1B+", l: "Real estate in development" },
-  { v: "30+",    l: "IT companies operated" },
+  { v: "30+",    l: "Tech & IT Companies Operated" },
   { v: "9",      l: "Global offices" },
   { v: "4",      l: "Sectors of focus" },
 ];
