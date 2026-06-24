@@ -59,9 +59,9 @@ export function Nav({ accent, onAccent }: Props) {
             {NAV.map((l, i) => (
               l.children ? (
                 <div className="nav-drop nav-anim-link" key={l.label}
-                     style={{ animationDelay: `${0.42 + i * 0.08}s` }}
-                     onMouseEnter={handleMouseEnter}
-                     onMouseLeave={handleMouseLeave}>
+                  style={{ animationDelay: `${0.42 + i * 0.08}s` }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}>
                   <NavLink to={l.href} className={() => isActive(l, pathname) ? "active" : ""}>
                     {l.label} <Icon.Chevron />
                   </NavLink>
@@ -74,9 +74,9 @@ export function Nav({ accent, onAccent }: Props) {
                   </div>
                 </div>
               ) : (
-                <NavLink 
-                  key={l.href} 
-                  to={l.href} 
+                <NavLink
+                  key={l.href}
+                  to={l.href}
                   style={{ animationDelay: `${0.42 + i * 0.08}s` }}
                   className={({ isActive }) => (isActive ? "active " : "") + "nav-anim-link"}
                 >
@@ -87,14 +87,14 @@ export function Nav({ accent, onAccent }: Props) {
           </div>
           <div className="nav-cta nav-anim-cta" style={{ animationDelay: `${0.42 + NAV.length * 0.08 + 0.12}s` }}>
             {/* <ThemeSwitcher value={accent} onChange={onAccent} /> */}
-            <NavLink className="btn btn-primary" to="/contact">Request a meeting <Icon.Arrow /></NavLink>
+            {/* <NavLink className="btn btn-primary" to="/contact">Request a meeting <Icon.Arrow /></NavLink> */}
             <button className="nav-burger" aria-label="Menu" onClick={() => setOpen(true)}><Icon.Menu /></button>
           </div>
         </nav>
       </div>
       <div className={"mobile-menu" + (open ? " open" : "")}>
         <button className="nav-burger" style={{ position: "absolute", top: 22, right: 22, display: "inline-flex" }}
-                aria-label="Close" onClick={() => setOpen(false)}><Icon.Close /></button>
+          aria-label="Close" onClick={() => setOpen(false)}><Icon.Close /></button>
         {NAV.map((l) => (
           <NavLink key={l.label} to={l.href} className={() => isActive(l, pathname) ? "active" : ""}>{l.label}</NavLink>
         ))}
