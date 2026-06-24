@@ -10,8 +10,8 @@ const PILLARS: PillarItem[] = [
 
 const STATS: Stat[] = [
   { v: "30+",    l: "IT companies operated" },
-  { v: "$650M+", l: "Real estate in development" },
-  { v: "4",      l: "Global offices" },
+  { v: "$1.1B+", l: "Real estate in development" },
+  { v: "9",      l: "Global offices" },
   { v: "5+",     l: "Sectors of focus" },
 ];
 
@@ -40,7 +40,7 @@ export default function PrivateEquity() {
       <StatBand stats={STATS} />
       <CTASection title="Looking for a" italic="growth partner?"
         sub="Tell us about your business and the next chapter you're planning."
-        secondary={{ label: "+1 732 666 2468", href: "tel:+17326662468" }} />
+        secondary={{ label: "info@vimtra.com", href: "mailto:info@vimtra.com" }} />
     </>
   );
 }

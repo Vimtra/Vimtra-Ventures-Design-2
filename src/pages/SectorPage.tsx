@@ -115,7 +115,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
         body={c.body} points={c.points} cta={{ label: "Submit a thesis", href: "/contact" }}
         mediaPlaceholder={c.mediaPlaceholder} />
       <CTASection title={`Backing the next ${c.name.toLowerCase()}`} italic="leaders."
-        secondary={{ label: "+1 732 666 2468", href: "tel:+17326662468" }} />
+        secondary={{ label: "info@vimtra.com", href: "mailto:info@vimtra.com" }} />
     </>
   );
 }

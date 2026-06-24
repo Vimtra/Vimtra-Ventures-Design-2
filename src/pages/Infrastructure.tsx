@@ -55,7 +55,7 @@ const PROJECTS = [
 ];
 
 const STATS: Stat[] = [
-  { v: "$650M+", l: "Under active development" },
+  { v: "$1.1B+", l: "Under active development" },
   { v: "12+",    l: "Projects in pipeline" },
   { v: "3",      l: "Growth metros" },
   { v: "100%",   l: "In-house operating teams" },
@@ -66,7 +66,7 @@ export default function Infrastructure() {
     <>
       <PageHero eyebrow="Infrastructure Development"
         title="Building the" italic="places" titleEnd="value lives."
-        sub="$650M+ of real estate and infrastructure under active development in high-growth target areas."
+        sub="$1.1 Billion of real estate and infrastructure under active development in high-growth target areas."
         primary={{ label: "Tour the pipeline", href: "/contact" }}
         secondary={{ label: "All sectors", href: "/portfolio" }} />
       <Pillars kicker="Asset classes" title="Three" italic="long-duration" titleEnd="strategies." items={PILLARS} />
@@ -89,7 +89,7 @@ export default function Infrastructure() {
           <div className="section-head reveal">
             <div className="kicker">Active Pipeline</div>
             <h2>Featured <span className="ital">Developments</span></h2>
-            <p>A look at our $650M+ active real estate and infrastructure projects under development globally.</p>
+            <p>A look at our $1.1 Billion+ active real estate and infrastructure projects under development globally.</p>
           </div>
           <div className="cards" data-grid="ae-spring">
             {PROJECTS.map((p, i) => (
@@ -115,7 +115,7 @@ export default function Infrastructure() {
 
       <StatBand stats={STATS} />
       <CTASection title="Co-investing in" italic="real assets."
-        sub="LP, JV, and bilateral structures considered." secondary={{ label: "+1 732 666 2468", href: "tel:+17326662468" }} />
+        sub="LP, JV, and bilateral structures considered." secondary={{ label: "info@vimtra.com", href: "mailto:info@vimtra.com" }} />
     </>
   );
 }

@@ -399,7 +399,7 @@ export default function Teams() {
         title="Want to"
         italic="join the team?"
         sub="We're always interested in exceptional operators and investors."
-        secondary={{ label: "syammada@vimtra.com", href: "mailto:syammada@vimtra.com" }}
+        secondary={{ label: "info@vimtra.com", href: "mailto:info@vimtra.com" }}
       />
     </>
   );

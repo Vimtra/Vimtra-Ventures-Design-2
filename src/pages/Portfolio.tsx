@@ -9,9 +9,9 @@ const SECTORS: SectorItem[] = [
 ];
 
 const STATS: Stat[] = [
-  { v: "$650M+", l: "Real estate in development" },
+  { v: "$1.1B+", l: "Real estate in development" },
   { v: "30+",    l: "IT companies operated" },
-  { v: "4",      l: "Global offices" },
+  { v: "9",      l: "Global offices" },
   { v: "4",      l: "Sectors of focus" },
 ];
 
@@ -26,7 +26,7 @@ export default function Portfolio() {
       <StatBand stats={STATS} />
       <CTASection title="Building something" italic="worth backing?"
         sub="We're always looking for category-defining founders and operators."
-        secondary={{ label: "+1 732 666 2468", href: "tel:+17326662468" }} />
+        secondary={{ label: "info@vimtra.com", href: "mailto:info@vimtra.com" }} />
     </>
   );
 }

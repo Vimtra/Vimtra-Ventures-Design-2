@@ -28,7 +28,7 @@ export default function MergersAcquisitions() {
       <Steps kicker="Process" title="A disciplined" italic="four-step" titleEnd="approach."
         sub="Clear roles, clear milestones, clear outcomes." steps={STEPS} />
       <CTASection title="Have a transaction" italic="in mind?"
-        sub="Speak with our M&A team about your next deal." secondary={{ label: "+1 732 666 2468", href: "tel:+17326662468" }} />
+        sub="Speak with our M&A team about your next deal." secondary={{ label: "info@vimtra.com", href: "mailto:info@vimtra.com" }} />
     </>
   );
 }

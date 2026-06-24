@@ -21,8 +21,8 @@ export const COMPANY = {
   name: "Vimtra Ventures",
   phone: "+1 732 666 2468",
   phoneHref: "tel:+17326662468",
-  email: "syammada@vimtra.com",
-  emailHref: "mailto:syammada@vimtra.com",
+  email: "info@vimtra.com",
+  emailHref: "mailto:info@vimtra.com",
   offices: "New York · San Francisco · Dallas · India",
   parent: "A subsidiary of Urpan Technologies Inc.",
   socials: {
