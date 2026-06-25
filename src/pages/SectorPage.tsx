@@ -296,7 +296,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
         secondary={{ label: "Back to portfolio", href: "/portfolio" }} />
       <Pillars kicker="Where we invest" title="Three" italic="focus" titleEnd="areas." items={c.pillars} />
       <SplitBlock kicker="Our approach" title="Operating know-how, not just" italic="capital."
-        body={c.body} points={c.points} cta={{ label: "Submit a thesis", href: "/contact" }}
+        body={c.body} points={c.points} cta={{ label: "Submit a Request", href: "/contact" }}
         mediaPlaceholder={c.mediaPlaceholder} />
 
       {/* Sports navigation buttons */}

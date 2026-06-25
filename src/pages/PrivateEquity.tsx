@@ -35,7 +35,7 @@ export default function PrivateEquity() {
           "Senior operators in every investment committee",
           "Cross-portfolio commercial relationships",
         ]}
-        cta={{ label: "Submit a thesis", href: "/contact" }}
+        cta={{ label: "Submit a Request", href: "/contact" }}
         mediaPlaceholder="/images/skyline.png, /images/deal_signing.png, /images/team.png" />
       <StatBand stats={STATS} />
       <CTASection title="Looking for a" italic="growth partner?"
