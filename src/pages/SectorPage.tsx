@@ -301,7 +301,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
 
       {/* Sports navigation buttons */}
       {sector === "sports" && (
-        <section className="section py-5" style={{ paddingBottom: '0' }}>
+        <section className="section py-5" style={{ paddingBottom: '80px' }}>
           <div className="wrap">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
               <div
