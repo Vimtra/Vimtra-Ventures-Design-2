@@ -1401,7 +1401,7 @@ body[data-cards="glass"] .sector-tile {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.nav-shell:not(.scrolled) .nav {
+.nav-shell .nav {
   animation: ae-nav-expand 1.15s var(--ease-ae-spring) forwards;
   transform-origin: center center;
   will-change: clip-path, transform;
