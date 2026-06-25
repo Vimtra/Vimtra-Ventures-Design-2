@@ -2,10 +2,10 @@ import { Icon } from "../lib/icons";
 import { PageHero, SectorGrid, StatBand, CTASection, type SectorItem, type Stat } from "../components/sections";
 
 const SECTORS: SectorItem[] = [
-  { icon: <Icon.Chip />,     name: "Information Technology",  note: "30+ companies owned & operated",       href: "/portfolio/it",          feat: true },
+  { icon: <Icon.Chip />,     name: "Information Technology",  note: "30+ companies owned & operated",       href: "/portfolio/it" },
   { icon: <Icon.Heart />,    name: "Healthcare",               note: "Medical technology & services",       href: "/portfolio/healthcare" },
   { icon: <Icon.Cart />,     name: "Retail",                   note: "Consumer brands & experiences",       href: "/portfolio/retail" },
-  { icon: <Icon.Trophy />,   name: "Sports Franchise",         note: "Golf & soccer properties",            href: "/portfolio/sports",      feat: true },
+  { icon: <Icon.Trophy />,   name: "Sports Franchise",         note: "Golf & soccer properties",            href: "/portfolio/sports" },
 ];
 
 const STATS: Stat[] = [

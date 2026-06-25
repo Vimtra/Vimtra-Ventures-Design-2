@@ -715,7 +715,7 @@ body[data-cards="outline"] .card .icon { background: transparent; }
 /* ============================================================
    SECTORS
    ============================================================ */
-.sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sectors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .sector-tile {
   position: relative; overflow: hidden;
   min-height: 188px; border-radius: var(--r-lg);
