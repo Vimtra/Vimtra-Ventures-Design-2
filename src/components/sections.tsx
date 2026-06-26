@@ -11,7 +11,7 @@ import { LiquidGlassContext } from "./LiquidGlassContext";
 
 /* ---------- common ---------- */
 interface CTA { label: string; href: string }
-interface Head { kicker?: string; title?: string; italic?: string; titleEnd?: string; sub?: string }
+interface Head { kicker?: string; title?: string; italic?: string; titleEnd?: string; sub?: ReactNode }
 
 export function SectionHead({ kicker, title, italic, titleEnd, sub, left }: Head & { left?: boolean }) {
   return (
@@ -426,10 +426,47 @@ export function TeamGrid({ kicker, title, italic, titleEnd, sub, people }: Head 
 /* ---------- contact block (form + info) ---------- */
 export function ContactBlock() {
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", company: "", type: "Request a meeting", message: "" });
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
-  const submit = (e: React.FormEvent) => { e.preventDefault(); setDone(true); };
+  
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    
+    const endpoint = import.meta.env.VITE_CONTACT_FORM_URL;
+    if (!endpoint) {
+      console.warn("VITE_CONTACT_FORM_URL is not set. Simulating contact form submission.");
+      setTimeout(() => {
+        setLoading(false);
+        setDone(true);
+      }, 1000);
+      return;
+    }
+
+    try {
+      // Send the request. Mode no-cors avoids preflight and handles Google Apps Script redirects.
+      await fetch(endpoint, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain"
+        },
+        body: JSON.stringify(form)
+      });
+      setLoading(false);
+      setDone(true);
+      setForm({ name: "", email: "", company: "", type: "Request a meeting", message: "" });
+    } catch (err: any) {
+      console.error("Submission failed:", err);
+      setError("Failed to send your message. Please try again or email us directly at info@vimtra.com.");
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="section contact-section">
       <div className="wrap">
@@ -458,13 +495,18 @@ export function ContactBlock() {
               </div>
             ) : (
               <form className="contact-form" onSubmit={submit}>
+                {error && (
+                  <div style={{ color: "#ff4d4d", fontSize: "14px", padding: "10px 14px", borderRadius: "8px", background: "rgba(255, 77, 77, 0.08)", border: "1px solid rgba(255, 77, 77, 0.16)", marginBottom: "8px" }}>
+                    {error}
+                  </div>
+                )}
                 <div className="field-row">
-                  <label className="field"><span>Name</span><input required value={form.name} onChange={set("name")} placeholder="Jane Doe" /></label>
-                  <label className="field"><span>Email</span><input required type="email" value={form.email} onChange={set("email")} placeholder="jane@company.com" /></label>
+                  <label className="field"><span>Name</span><input required disabled={loading} value={form.name} onChange={set("name")} placeholder="Jane Doe" /></label>
+                  <label className="field"><span>Email</span><input required disabled={loading} type="email" value={form.email} onChange={set("email")} placeholder="jane@company.com" /></label>
                 </div>
-                <label className="field"><span>Company</span><input value={form.company} onChange={set("company")} placeholder="Company name" /></label>
+                <label className="field"><span>Company</span><input disabled={loading} value={form.company} onChange={set("company")} placeholder="Company name" /></label>
                 <label className="field"><span>I'm interested in</span>
-                  <select value={form.type} onChange={set("type")}>
+                  <select disabled={loading} value={form.type} onChange={set("type")}>
                     <option>Request a meeting</option>
                     <option>Submit a deal</option>
                     <option>Growth capital</option>
@@ -472,8 +514,10 @@ export function ContactBlock() {
                     <option>Partnership / other</option>
                   </select>
                 </label>
-                <label className="field"><span>Message</span><textarea rows={4} value={form.message} onChange={set("message")} placeholder="A few words about your company or thesis…" /></label>
-                <button className="btn btn-primary btn-lg" type="submit">Send message <Icon.Arrow /></button>
+                <label className="field"><span>Message</span><textarea disabled={loading} rows={4} value={form.message} onChange={set("message")} placeholder="A few words about your company or thesis…" /></label>
+                <button className="btn btn-primary btn-lg" type="submit" disabled={loading}>
+                  {loading ? "Sending..." : "Send message"} {!loading && <Icon.Arrow />}
+                </button>
               </form>
             )}
           </div>

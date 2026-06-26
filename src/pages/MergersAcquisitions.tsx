@@ -23,8 +23,8 @@ export default function MergersAcquisitions() {
         sub="From sell-side mandates to cross-border combinations, we structure transactions that compound value over decades."
         primary={{ label: "Discuss a deal", href: "/contact" }}
         secondary={{ label: "Our portfolio", href: "/portfolio" }} />
-      <Pillars kicker="Capabilities" title="Full-cycle" italic="M&A" titleEnd="expertise."
-        sub="A senior team across the full transaction lifecycle." items={PILLARS} />
+      <Pillars kicker="Strategic Services" title="Full-cycle" italic="M&A" titleEnd="expertise."
+        sub={<>A senior team across the full transaction lifecycle.<br />From valuation and structuring to post-close integration,<br />we combine institutional rigor with hands-on operating experience.</>} items={PILLARS} />
       <Steps kicker="Process" title="A disciplined" italic="four-step" titleEnd="approach."
         sub="Clear roles, clear milestones, clear outcomes." steps={STEPS} />
       <CTASection title="Have a transaction" italic="in mind?"

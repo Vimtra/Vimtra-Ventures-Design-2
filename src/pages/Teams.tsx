@@ -395,6 +395,47 @@ export default function Teams() {
         </div>
       </div>
 
+      {/* Mobile Scrollable layout - hidden on desktop via CSS */}
+      <div className="mobile-team-section">
+        <div className="wrap mobile-team-wrap">
+          {MEMBERS.map((member, idx) => {
+            const derivedInitials = member.initials || member.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+            return (
+              <div className="mobile-member-card reveal" key={idx}>
+                <div className="mobile-member-header">
+                  <div className="mobile-member-photo">
+                    {member.photoSrc ? (
+                      <img src={asset(member.photoSrc)} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    ) : (
+                      <span className="mobile-member-initials">{derivedInitials}</span>
+                    )}
+                  </div>
+                  <div className="mobile-member-meta">
+                    <h3>{member.name}</h3>
+                    <div className="mobile-member-role">{member.role}</div>
+                  </div>
+                </div>
+                
+                <div className="mobile-member-bio">
+                  {typeof member.bio === "string" ? <p>{member.bio}</p> : member.bio}
+                </div>
+
+                {member.sections && member.sections.length > 0 && (
+                  <div className="mobile-member-sections">
+                    {member.sections.map((sec, sIdx) => (
+                      <div className="mobile-member-section" key={sIdx}>
+                        <h4>{sec.title}</h4>
+                        <div className="mobile-member-section-body">{sec.body}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       <CTASection
         title="Want to"
         italic="join the team?"

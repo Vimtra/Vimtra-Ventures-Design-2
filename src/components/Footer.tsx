@@ -4,18 +4,22 @@ import { COMPANY } from "../data";
 import { asset } from "../lib/asset";
 
 const COLS: { h: string; items: [string, string][] }[] = [
-  { h: "Capabilities", items: [
-    ["Venture Capital", "/private-equity"],
-    ["Private Equity", "/private-equity"],
-    ["Mergers & Acquisitions", "/mergers-acquisitions"],
-    ["Infrastructure", "/infrastructure"],
-  ]},
-  { h: "Portfolio", items: [
-    ["Information Technology", "/portfolio/it"],
-    ["Healthcare", "/portfolio/healthcare"],
-    ["Retail", "/portfolio/retail"],
-    ["Sports & Entertainment", "/portfolio/sports"],
-  ]},
+  {
+    h: "Core Competencies", items: [
+      ["Venture Capital", "/private-equity"],
+      ["Private Equity", "/private-equity"],
+      ["Mergers & Acquisitions", "/mergers-acquisitions"],
+      ["Infrastructure", "/infrastructure"],
+    ]
+  },
+  {
+    h: "Portfolio", items: [
+      ["Information Technology", "/portfolio/it"],
+      ["Healthcare", "/portfolio/healthcare"],
+      ["Retail", "/portfolio/retail"],
+      ["Sports & Entertainment", "/portfolio/sports"],
+    ]
+  },
 ];
 
 export function Footer() {
@@ -49,7 +53,7 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</span>
-          <span className="disclaimer">For informational purposes only. Nothing herein constitutes an offer to sell or a solicitation of an offer to buy any security or investment product.</span>
+          {/* <span className="disclaimer">For informational purposes only. Nothing herein constitutes an offer to sell or a solicitation of an offer to buy any security or investment product.</span> */}
         </div>
       </div>
     </footer>
