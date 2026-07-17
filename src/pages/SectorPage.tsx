@@ -68,7 +68,7 @@ const CONTENT: Record<SectorKey, SectorContent> = {
       "Our portfolio benefits from shared expertise in supply chain, brand, and category management.",
     ],
     points: ["Brand-first investment thesis", "Supply chain & sourcing leverage", "Digital + physical playbook"],
-    mediaPlaceholder: "/images/portfolio_retail.png",
+    mediaPlaceholder: "/images/portfolio_retail_new.png",
     projects: [
       {
         name: "Aha Amoham",
@@ -136,7 +136,7 @@ const CONTENT: Record<SectorKey, SectorContent> = {
       "We hold long-term and invest behind operators with both commercial discipline and cultural fluency.",
     ],
     points: ["Golf communities", "Soccer properties", "Live entertainment", "Long-term value creation"],
-    mediaPlaceholder: "/images/portfolio_sports.png",
+    mediaPlaceholder: "/images/portfolio_sports_new.png",
     projects: [
       {
         name: "The Bays – Golf Lab & Suites",
