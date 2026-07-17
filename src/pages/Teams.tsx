@@ -164,8 +164,8 @@ const MEMBERS = [
   },
   {
     name: "M. Ravi Babu",
-    role: "Additional Director, Vimtra Ventures",
-    bio: "M. Ravi Babu is a seasoned director with 15 years of experience in leading software and educational consultancy services. As the Additional Director of Vimtra Ventures, he oversees a diverse portfolio that includes Educational Services, HR Value Services, a Law Firm, and US IT Staffing.",
+    role: "Director, Vimtra Ventures",
+    bio: "M. Ravi Babu is a seasoned director with 15 years of experience in leading software and educational consultancy services. As the Director of Vimtra Ventures, he oversees a diverse portfolio that includes Educational Services, HR Value Services, a Law Firm, and US IT Staffing.",
     initials: "RB",
     sections: RAVI,
     photoSrc: "",
@@ -244,6 +244,7 @@ export default function Teams() {
         italic="builders."
         titleEnd=""
         sub="A senior team across corporate finance, technology operations, and real-asset development — based in New York, San Francisco, Dallas, and India."
+        bgImage="images/teams.jpg"
         primary={{ label: "Get in touch", href: "/contact" }}
       />
 

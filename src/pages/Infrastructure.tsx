@@ -205,13 +205,14 @@ export default function Infrastructure() {
 
   return (
     <>
-      <PageHero eyebrow="Infrastructure Development"
+      <PageHero eyebrow="Infrastructure & Real Estate"
         title="Building the" italic="places" titleEnd="value lives."
         sub="$1.1 Billion of real estate and infrastructure under active development in high-growth target areas."
+        bgImage="images/infra_rendering.png"
         primary={{ label: "Tour the pipeline", href: "/contact" }}
         secondary={{ label: "All sectors", href: "/portfolio" }} />
-      <Pillars kicker="Asset classes" title="Three" italic="long-duration" titleEnd="strategies." items={PILLARS} />
-      <SplitBlock kicker="Why infrastructure" title="Inflation-resilient yield with" italic="real upside."
+      <Pillars kicker="01 — Where we focus" title="Three" italic="long-duration" titleEnd="strategies." items={PILLARS} />
+      <SplitBlock kicker="02 — How we operate" title="Inflation-resilient yield with" italic="real upside."
         body={[
           "Real assets remain one of the most reliable hedges against inflation while delivering predictable cash flows over multi-decade horizons.",
           "We focus on supply-constrained metros where demographic and economic tailwinds support durable rent growth and capital appreciation.",
@@ -228,7 +229,7 @@ export default function Infrastructure() {
       <section className="section" id="projects">
         <div className="wrap">
           <div className="section-head reveal">
-            <div className="kicker">Active Pipeline</div>
+            <div className="kicker">03 — Track record</div>
             <h2>Featured <span className="ital">Developments</span></h2>
             <p>A look at our $1.1 Billion+ active real estate and infrastructure projects under development globally.</p>
           </div>

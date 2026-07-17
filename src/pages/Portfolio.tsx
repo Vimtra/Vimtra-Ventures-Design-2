@@ -21,6 +21,7 @@ export default function Portfolio() {
       <PageHero eyebrow="Our portfolio"
         title="A diversified" italic="footprint." titleEnd=""
         sub="Across technology, healthcare, retail, and sports franchises — partnering with visionary enterprises worldwide."
+        bgImage="images/portfolio.jpeg"
         primary={{ label: "Discuss a partnership", href: "/contact" }} />
       <SectorGrid items={SECTORS} />
       <StatBand stats={STATS} />

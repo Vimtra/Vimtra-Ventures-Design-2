@@ -1,7 +1,10 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { applyAccent, loadSavedAccent, type AccentHex } from "../lib/accents";
+import { Wayfinding } from "./Wayfinding";
+import { applyAccent, loadSavedAccent, DEFAULT_ACCENT, type AccentHex } from "../lib/accents";
+import { areaForPath } from "../lib/areas";
 import { useReveal, useTilt, useGridHover } from "../lib/hooks";
 import { CanvasCursor } from "./CanvasCursor";
 
@@ -54,7 +57,18 @@ function useButtonRipple() {
 
 export function PageShell({ children }: Props) {
   const [accent, setAccent] = useState<AccentHex>(loadSavedAccent());
-  useEffect(() => { applyAccent(accent); }, [accent]);
+  const { pathname } = useLocation();
+  const area = areaForPath(pathname);
+
+  // Brand theme is locked to gold across the whole site. The active area still
+  // drives the wayfinding rail + breadcrumb label (which area am I in), but the
+  // colour stays gold everywhere — the other accents are kept hidden.
+  useEffect(() => {
+    applyAccent(DEFAULT_ACCENT);
+    document.body.setAttribute("data-area", area ? area.key : "");
+    return () => { document.body.removeAttribute("data-area"); };
+  }, [area]);
+
   useEffect(() => { document.body.setAttribute("data-cards", "glass"); }, []);
   useReveal();
   useTilt();
@@ -65,6 +79,7 @@ export function PageShell({ children }: Props) {
     <>
       <CanvasCursor />
       <Nav accent={accent} onAccent={setAccent} />
+      {pathname !== "/" ? <Wayfinding area={area} pathname={pathname} /> : null}
       <main>{children}</main>
       <Footer />
     </>

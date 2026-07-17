@@ -18,14 +18,15 @@ const STATS: Stat[] = [
 export default function PrivateEquity() {
   return (
     <>
-      <PageHero eyebrow="Private Equity"
+      <PageHero eyebrow="Private Equity & Venture Capital"
         title="Patient capital," italic="active" titleEnd="partnership."
         sub="We invest in established technology and services businesses with strong fundamentals — and partner closely to compound their value over the long term."
+        bgImage="images/private-equity.jpg"
         primary={{ label: "Request a meeting", href: "/contact" }}
         secondary={{ label: "Our portfolio", href: "/portfolio" }} />
-      <Pillars kicker="Strategies" title="Three ways we" italic="deploy" titleEnd="capital."
+      <Pillars kicker="01 — Where we focus" title="Three ways we" italic="deploy" titleEnd="capital."
         items={PILLARS} />
-      <SplitBlock kicker="Our approach" title="Operating know-how, not just" italic="capital."
+      <SplitBlock kicker="02 — How we operate" title="Operating know-how, not just" italic="capital."
         body={[
           "We've owned and operated more than 30 technology businesses — so we understand the operational levers that turn good companies into great ones.",
           "Our model pairs senior corporate-finance expertise with the patience and alignment our portfolio companies need to compound value across cycles.",

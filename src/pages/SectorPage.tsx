@@ -292,10 +292,11 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
   return (
     <>
       <PageHero eyebrow={c.eyebrow} title={c.titleA} italic={c.italic} titleEnd={c.titleEnd} sub={c.sub}
+        bgImage={c.mediaPlaceholder}
         primary={{ label: "Discuss a partnership", href: "/contact" }}
         secondary={{ label: "Back to portfolio", href: "/portfolio" }} />
-      <Pillars kicker="Where we invest" title="Three" italic="focus" titleEnd="areas." items={c.pillars} />
-      <SplitBlock kicker="Our approach" title="Operating know-how, not just" italic="capital."
+      <Pillars kicker="01 — Where we focus" title="Three" italic="focus" titleEnd="areas." items={c.pillars} />
+      <SplitBlock kicker="02 — How we operate" title="Operating know-how, not just" italic="capital."
         body={c.body} points={c.points} cta={{ label: "Submit a Request", href: "/contact" }}
         mediaPlaceholder={c.mediaPlaceholder} />
 
@@ -383,7 +384,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
         <section className="section bg-light pt-0">
           <div className="wrap">
             <div className="section-head reveal">
-              <div className="kicker">Retail Portfolio</div>
+              <div className="kicker">03 — In the portfolio</div>
               <h2>Featured <span className="ital">Retail Projects</span></h2>
             </div>
             {renderProjectGrid(c.projects)}
@@ -395,7 +396,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
         <section className="section bg-light pt-0">
           <div className="wrap">
             <div className="section-head reveal">
-              <div className="kicker">Healthcare Portfolio</div>
+              <div className="kicker">03 — In the portfolio</div>
               <h2>Featured <span className="ital">Healthcare Ventures</span></h2>
             </div>
             {renderProjectGrid(c.projects)}
@@ -408,7 +409,7 @@ export default function SectorPage({ sector }: { sector: SectorKey }) {
           <section id="golf-communities" className="section bg-light pt-5">
             <div className="wrap">
               <div className="section-head reveal">
-                <div className="kicker">Golf Portfolio</div>
+                <div className="kicker">03 — In the portfolio</div>
                 <h2>Flagship <span className="ital">Golf Developments</span></h2>
               </div>
               {renderProjectGrid(golfProjects)}

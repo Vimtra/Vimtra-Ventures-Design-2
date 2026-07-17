@@ -1,4 +1,4 @@
-export type AccentHex = "#e94a8c" | "#7c5cff" | "#2dd4bf" | "#f5a524" | "#3b82f6" | "#e21414";
+export type AccentHex = "#e94a8c" | "#7c5cff" | "#2dd4bf" | "#f5a524" | "#3b82f6" | "#e21414" | "#f97316";
 
 export interface AccentPreset {
   deep: string;
@@ -15,9 +15,10 @@ export const ACCENTS: Record<AccentHex, AccentPreset> = {
   "#f5a524": { deep: "#b6730a", rgb: "245, 165, 36",  ink: "#1f1305", label: "Solar Gold",    grad: "linear-gradient(135deg,#fcd34d 0%,#f5a524 50%,#b45309 100%)" },
   "#3b82f6": { deep: "#1d4ed8", rgb:  "59, 130, 246", ink: "#ffffff", label: "Sapphire",      grad: "linear-gradient(135deg,#60a5fa 0%,#3b82f6 50%,#1e3a8a 100%)" },
   "#e21414": { deep: "#a60c0c", rgb: "226, 32, 32",   ink: "#ffffff", label: "Royal Red",     grad: "linear-gradient(135deg,#ff4d4d 0%,#e21414 50%,#7a0606 100%)" },
+  "#f97316": { deep: "#c2410c", rgb: "249, 115, 22",  ink: "#1f1002", label: "Amber Terra",    grad: "linear-gradient(135deg,#fdba74 0%,#f97316 50%,#9a3412 100%)" },
 };
 
-export const ACCENT_ORDER: AccentHex[] = ["#e94a8c", "#7c5cff", "#2dd4bf", "#f5a524", "#3b82f6", "#e21414"];
+export const ACCENT_ORDER: AccentHex[] = ["#e94a8c", "#7c5cff", "#2dd4bf", "#f5a524", "#3b82f6", "#e21414", "#f97316"];
 export const DEFAULT_ACCENT: AccentHex = "#f5a524";
 const STORAGE_KEY = "vimtra:accent";
 

@@ -29,11 +29,16 @@ interface PageHeroProps extends Head {
   primary?: CTA;
   secondary?: CTA;
   fluid?: boolean;
+  /** Half-visible essence image bled into the right of the hero. */
+  bgImage?: string;
 }
-export function PageHero({ eyebrow, title, italic, titleEnd, sub, primary, secondary, fluid }: PageHeroProps) {
+export function PageHero({ eyebrow, title, italic, titleEnd, sub, primary, secondary, fluid, bgImage }: PageHeroProps) {
   return (
-    <header className="page-hero">
+    <header className={"page-hero" + (bgImage ? " has-photo" : "")}>
       {fluid ? <FluidBackground className="fluid-canvas" /> : <div className="page-hero-bg grain" />}
+      {bgImage ? (
+        <div className="page-hero-photo" style={{ backgroundImage: `url(${asset(bgImage)})` }} aria-hidden="true" />
+      ) : null}
       <div className="page-hero-vig" />
       <div className="wrap">
         <div className="page-hero-inner reveal">

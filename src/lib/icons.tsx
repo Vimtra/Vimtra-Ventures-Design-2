@@ -33,4 +33,7 @@ export const Icon = {
   Chevron: (p: SVGProps<SVGSVGElement>) => (<svg width={13} height={13} viewBox="0 0 24 24" {...s} {...p}><path d="m6 9 6 6 6-6"/></svg>),
   Menu: (p: SVGProps<SVGSVGElement>) => (<svg width={20} height={20} viewBox="0 0 24 24" {...s} {...p}><path d="M4 7h16M4 12h16M4 17h16"/></svg>),
   Close: (p: SVGProps<SVGSVGElement>) => (<svg width={22} height={22} viewBox="0 0 24 24" {...s} {...p}><path d="M6 6l12 12M18 6L6 18"/></svg>),
+  Home: (p: SVGProps<SVGSVGElement>) => (<svg width={18} height={18} viewBox="0 0 24 24" {...s} {...p}><path d="M4 11l8-7 8 7M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg>),
+  Users: (p: SVGProps<SVGSVGElement>) => (<svg width={18} height={18} viewBox="0 0 24 24" {...s} {...p}><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.2a3 3 0 0 1 0 5.6M18 14c2.4.6 4 2.6 4 5"/></svg>),
+  Grid: (p: SVGProps<SVGSVGElement>) => (<svg width={18} height={18} viewBox="0 0 24 24" {...s} {...p}><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>),
 };

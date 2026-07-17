@@ -1626,7 +1626,7 @@ body[data-cards="glass"] .sector-tile {
   width: 240px;
   height: 320px;
   transform-style: preserve-3d;
-  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 1.25s cubic-bezier(0.15, 0.85, 0.2, 1);
 }
 
 .carousel-card {
@@ -1700,34 +1700,47 @@ body[data-cards="glass"] .sector-tile {
 }
 
 .carousel-nav-btn {
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 305px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
+  background: rgba(10, 10, 14, 0.6);
+  color: var(--text-dim);
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 100;
+  transform: translateY(-50%) scale(1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-nav-btn svg {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.35s ease;
 }
 
 .carousel-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(var(--glow-rgb), 0.12);
   border-color: var(--border-strong);
-  color: var(--accent);
-  transform: translateY(-50%) scale(1.05);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 16px rgba(var(--glow-rgb), 0.25);
+}
+
+.carousel-nav-btn.prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.carousel-nav-btn.next:hover svg {
+  transform: translateX(3px);
 }
 
 .team-carousel-section {
   position: relative;
-}
-
-.carousel-nav-btn {
-  position: absolute;
-  top: 52%;
-  transform: translateY(-50%);
 }
 
 .carousel-nav-btn.prev {
@@ -1814,6 +1827,10 @@ body[data-cards="glass"] .sector-tile {
   inset: 0;
   pointer-events: none;
   animation: bubble-float 4.5s ease-in-out infinite alternate;
+}
+
+.bubble-floating-wrapper:has(.bubble:hover) {
+  z-index: 500 !important;
 }
 
 /* Staggered floating cycles */
@@ -2126,6 +2143,184 @@ body.member-hovered .nav-shell {
 @media (min-width: 769px) {
   .mobile-team-section {
     display: none !important;
+  }
+}
+
+/* ============================================================
+   REDESIGN — nav icons
+   ============================================================ */
+.nav-links a { display: inline-flex; align-items: center; gap: 7px; }
+.nav-ico { display: inline-flex; align-items: center; color: var(--accent); opacity: .9; }
+.nav-ico svg { width: 15px; height: 15px; }
+.nav-links a:hover .nav-ico { opacity: 1; }
+.dropdown a .nav-ico svg { width: 14px; height: 14px; }
+.mobile-menu a .nav-ico svg { width: 20px; height: 20px; }
+.mobile-menu a { display: inline-flex; align-items: center; gap: 12px; }
+
+/* ============================================================
+   REDESIGN — home tile grid (portfolio "at one shot")
+   ============================================================ */
+/* Compact the cosmic hero so the tiles surface without a long scroll. */
+.home-tiled .hero { min-height: 86vh; }
+.area-tiles-section { padding-top: clamp(40px, 6vw, 80px); }
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.area-tile {
+  --area: var(--accent);
+  --area-rgb: var(--glow-rgb);
+  position: relative; overflow: hidden;
+  min-height: 224px; border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, rgba(28,28,34,.72), rgba(12,12,16,.72));
+  padding: 26px; display: flex; flex-direction: column;
+  isolation: isolate;
+  transition: transform .45s var(--ease-ae-spring), border-color .3s var(--ease-ae-speed), box-shadow .4s var(--ease-ae-speed);
+}
+.area-tile.wide  { grid-column: span 6; }
+.area-tile.third { grid-column: span 4; }
+.area-tile.half  { grid-column: span 6; }
+
+/* Half-visible essence image bled into the background of each tile */
+.area-tile-bg {
+  position: absolute; inset: 0; z-index: -2;
+  background-size: cover; background-position: center;
+  opacity: .26; transform: scale(1.02);
+  transition: opacity .5s var(--ease-ae-speed), transform .6s var(--ease-ae-speed);
+  -webkit-mask-image: linear-gradient(160deg, transparent 8%, #000 78%);
+          mask-image: linear-gradient(160deg, transparent 8%, #000 78%);
+}
+.area-tile::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(160deg, rgba(10,10,13,.55) 0%, rgba(10,10,13,.15) 45%, rgba(10,10,13,.75) 100%);
+}
+.area-tile-glow {
+  position: absolute; right: -25%; top: -35%; width: 70%; height: 90%; z-index: -1;
+  background: radial-gradient(closest-side, rgba(var(--area-rgb), .22), transparent);
+  opacity: .55; transition: opacity .4s ease; pointer-events: none;
+}
+.area-tile:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--area-rgb), .5);
+  box-shadow: 0 34px 66px -44px rgba(0,0,0,.92), 0 0 46px -24px rgba(var(--area-rgb), .55);
+}
+.area-tile:hover .area-tile-bg { opacity: .4; transform: scale(1.06); }
+.area-tile:hover .area-tile-glow { opacity: 1; }
+
+.area-tile-ico {
+  width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center;
+  color: var(--area); background: rgba(var(--area-rgb), .12);
+  border: 1px solid rgba(var(--area-rgb), .42);
+}
+.area-tile-meta { margin-top: auto; }
+.area-tile-meta h3 {
+  margin: 18px 0 6px; font-size: clamp(19px, 2.1vw, 24px); font-weight: 600; letter-spacing: -.01em;
+  color: var(--area);
+  text-shadow: 0 1px 18px rgba(0,0,0,.5);
+}
+.area-tile-meta p { margin: 0; color: var(--text-dim); font-size: 14.5px; line-height: 1.5; max-width: 42ch; }
+.area-tile-go {
+  margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; font-weight: 600; color: var(--area);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.area-tile:hover .area-tile-go { opacity: 1; transform: none; }
+
+/* The ¾-length wayfinding bar (bottom edge) in the tile's own colour */
+.area-tile-bar {
+  position: absolute; left: 26px; bottom: 0; height: 4px; width: 75%;
+  background: linear-gradient(90deg, var(--area), rgba(var(--area-rgb), .15));
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 16px -2px rgba(var(--area-rgb), .8);
+}
+
+@media (max-width: 980px) {
+  .area-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .area-tile.wide, .area-tile.third, .area-tile.half { grid-column: span 1; }
+}
+@media (max-width: 560px) {
+  .area-grid { grid-template-columns: 1fr; }
+  .area-tile { min-height: 186px; padding: 22px; }
+}
+
+/* ============================================================
+   REDESIGN — wayfinding rail + breadcrumb (which area am I in)
+   ============================================================ */
+.way-rail {
+  position: fixed; left: max(14px, calc((100vw - var(--maxw)) / 2 - 34px));
+  top: 50%; transform: translateY(-50%);
+  height: 75vh; width: 34px; z-index: 60;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  gap: 16px; pointer-events: none;
+}
+.way-rail-bar {
+  width: 4px; height: 100%; border-radius: 4px;
+  background: linear-gradient(180deg, var(--accent), rgba(var(--glow-rgb), .12));
+  box-shadow: 0 0 18px -2px var(--glow);
+}
+.way-rail-label {
+  position: absolute; top: 0; left: 14px;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-size: 12px; letter-spacing: .28em; text-transform: uppercase; font-weight: 600;
+  color: var(--accent); white-space: nowrap;
+}
+@media (max-width: 1180px) { .way-rail { display: none; } }
+
+.way-crumb {
+  position: relative; z-index: 55;
+  padding-top: 92px; padding-bottom: 14px;
+  background: linear-gradient(180deg, rgba(8,8,10,.72), transparent);
+}
+.way-crumb-inner { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.way-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 13px; border-radius: 999px;
+  border: 1px solid var(--border); background: rgba(255,255,255,.04);
+  color: var(--text-dim); font-size: 13px; font-weight: 500;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.way-btn svg { width: 15px; height: 15px; }
+.way-btn:hover { color: var(--text); background: rgba(var(--glow-rgb), .1); border-color: var(--border-strong); transform: translateY(-1px); }
+.way-sep { color: var(--text-faint); font-size: 13px; }
+.way-here {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 13px; border-radius: 999px;
+  border: 1px solid rgba(var(--glow-rgb), .4); background: rgba(var(--glow-rgb), .1);
+  color: var(--accent); font-size: 13px; font-weight: 600;
+}
+.way-here svg { width: 15px; height: 15px; }
+
+/* Interior heroes sit right under the breadcrumb now, so trim their top pad. */
+.page-hero { padding-top: 40px; }
+
+/* ============================================================
+   REDESIGN — half-visible essence image on interior heroes
+   ============================================================ */
+/* Full-bleed: the essence image fills the entire hero (cover), with a dark
+   gradient wash that keeps the left-aligned headline legible. */
+.page-hero-photo {
+  position: absolute; inset: 0; z-index: -2;
+  background-size: cover; background-position: center;
+  opacity: .62;
+}
+.page-hero.has-photo .page-hero-vig {
+  background:
+    linear-gradient(90deg, rgba(6,6,8,.94) 0%, rgba(6,6,8,.66) 46%, rgba(6,6,8,.42) 100%),
+    linear-gradient(180deg, rgba(5,5,7,.5) 0%, transparent 30%, transparent 52%, rgba(6,6,8,.96) 100%);
+}
+/* Keep the headline legible over any full-bleed image, regardless of brightness. */
+.page-hero.has-photo .page-hero-inner h1,
+.page-hero.has-photo .page-hero-inner .sub {
+  text-shadow: 0 2px 26px rgba(0,0,0,.62), 0 1px 3px rgba(0,0,0,.5);
+}
+@media (max-width: 720px) {
+  .page-hero-photo { opacity: .5; }
+  .page-hero.has-photo .page-hero-vig {
+    background: linear-gradient(180deg, rgba(5,5,7,.74) 0%, rgba(6,6,8,.6) 40%, rgba(6,6,8,.96) 100%);
   }
 }
 

@@ -13,6 +13,13 @@ function isActive(item: NavItem, pathname: string) {
   return false;
 }
 
+/** Resolve a nav item's glyph by name (icons live in the shared Icon set). */
+function NavIcon({ name }: { name?: string }) {
+  if (!name) return null;
+  const Glyph = (Icon as Record<string, (p: any) => JSX.Element>)[name];
+  return Glyph ? <span className="nav-ico"><Glyph /></span> : null;
+}
+
 interface Props { accent: AccentHex; onAccent: (v: AccentHex) => void; }
 
 export function Nav({ accent, onAccent }: Props) {
@@ -63,12 +70,12 @@ export function Nav({ accent, onAccent }: Props) {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}>
                   <NavLink to={l.href} className={() => isActive(l, pathname) ? "active" : ""}>
-                    {l.label} <Icon.Chevron />
+                    <NavIcon name={l.icon} /> {l.label} <Icon.Chevron />
                   </NavLink>
                   <div className={"dropdown" + (drop ? " show" : "")}>
                     {l.children.map((c) => (
                       <NavLink key={c.href} to={c.href} className={({ isActive }) => isActive ? "active" : ""}>
-                        {c.label}
+                        <NavIcon name={c.icon} /> {c.label}
                       </NavLink>
                     ))}
                   </div>
@@ -80,7 +87,7 @@ export function Nav({ accent, onAccent }: Props) {
                   style={{ animationDelay: `${0.42 + i * 0.08}s` }}
                   className={({ isActive }) => (isActive ? "active " : "") + "nav-anim-link"}
                 >
-                  {l.label}
+                  <NavIcon name={l.icon} /> {l.label}
                 </NavLink>
               )
             ))}
@@ -96,7 +103,9 @@ export function Nav({ accent, onAccent }: Props) {
         <button className="nav-burger" style={{ position: "absolute", top: 22, right: 22, display: "inline-flex" }}
           aria-label="Close" onClick={() => setOpen(false)}><Icon.Close /></button>
         {NAV.map((l) => (
-          <NavLink key={l.label} to={l.href} className={() => isActive(l, pathname) ? "active" : ""}>{l.label}</NavLink>
+          <NavLink key={l.label} to={l.href} className={() => isActive(l, pathname) ? "active" : ""}>
+            <NavIcon name={l.icon} /> {l.label}
+          </NavLink>
         ))}
         <NavLink className="btn btn-primary btn-lg" to="/contact">Request a meeting <Icon.Arrow /></NavLink>
       </div>
