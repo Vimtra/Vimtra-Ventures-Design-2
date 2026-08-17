@@ -22,7 +22,6 @@ export const COMPANY = {
   email: "info@vimtra.com",
   emailHref: "mailto:info@vimtra.com",
   offices: "New York · San Francisco · Dallas · India",
-  parent: "A subsidiary of Urpan Technologies Inc.",
   socials: {
     linkedin: "https://www.linkedin.com/company/vimtra-ventures/",
     instagram: "https://www.instagram.com/vimtra_ventures/",
